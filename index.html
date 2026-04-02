@@ -29,7 +29,7 @@
     <main class="page">
       <header class="hero">
         <div class="profile">
-          <img src="images/that's not me.jpeg" alt="Marco Tam" class="avatar" />
+          <img src="images/that's%20not%20me.jpeg" alt="Marco Tam" class="avatar" />
           <h1>King-Man Tam</h1>
           <p class="subtitle">
             Master student in Open Vision Lab at Science Tokyo
@@ -136,6 +136,29 @@
         },
       ];
 
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      function safeHref(url) {
+        const value = String(url || "").trim();
+        if (!value) return "#";
+        if (
+          value.startsWith("https://") ||
+          value.startsWith("http://") ||
+          value.startsWith("mailto:") ||
+          value.startsWith("/")
+        ) {
+          return value;
+        }
+        return "#";
+      }
+
       function renderResearch() {
         const listEl = document.getElementById("research-list");
         if (!listEl) return;
@@ -146,33 +169,35 @@
 
         listEl.innerHTML = sorted
           .map((item) => {
-            const styledVenue = item.venue.replace(
+            const safeVenue = escapeHtml(item.venue || "");
+            const styledVenue = safeVenue.replace(
               /\bOral\b/g,
               '<span class="venue-oral">Oral</span>'
             );
-            const styledAuthors = item.authors.replace(
+            const safeAuthors = escapeHtml(item.authors || "");
+            const styledAuthors = safeAuthors.replace(
               /\bKing-Man Tam\b/g,
               "<strong>King-Man Tam</strong>"
             );
             const links = item.links
               .map(
                 (link) =>
-                  `<a href="${link.url}"><i class="fas ${link.icon}"></i> ${link.label}</a>`
+                  `<a href="${safeHref(link.url)}" target="_blank" rel="noopener noreferrer"><i class="fas ${escapeHtml(link.icon || "fa-link")}"></i> ${escapeHtml(link.label || "Link")}</a>`
               )
               .join("");
             const thumbnailExt = item.thumbnailExt || "png";
             const thumbnailSrc = item.code
-              ? `teasers/${item.code}.${thumbnailExt}`
+              ? `teasers/${encodeURIComponent(item.code)}.${encodeURIComponent(thumbnailExt)}`
               : "";
             const thumbnailHtml = item.code
-              ? `<img src="${thumbnailSrc}" alt="${item.title} thumbnail" loading="lazy" />`
+              ? `<img src="${thumbnailSrc}" alt="${escapeHtml(item.title || "Research")} thumbnail" loading="lazy" onerror="this.onerror=null;this.closest('.paper-thumb').textContent='Preview';" />`
               : "Preview";
 
             return `
               <article class="paper-card">
                 <div class="paper-thumb">${thumbnailHtml}</div>
                 <div class="paper-content">
-                  <h3 class="paper-title">${item.title}</h3>
+                  <h3 class="paper-title">${escapeHtml(item.title || "")}</h3>
                   <p class="paper-meta">${styledVenue}</p>
                   <p class="paper-authors">${styledAuthors}</p>
                   <div class="paper-links">${links}</div>
