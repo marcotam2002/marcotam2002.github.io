@@ -1,37 +1,23 @@
-<!-- Copied from https://github.com/timothygebhard/minimal-academic-website-->
-
 <!DOCTYPE html>
-
 <html lang="en">
-
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Define title -->
-    <title>King-Man Tam</title>
-
-    <!-- Include favicon. Use, e.g., https://favicon.io/ -->
+    <title>Kingman's Homepage</title>
     <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
-
-    <!-- Include style sheets -->
     <link rel="stylesheet" href="main.css" />
-
-    <!-- Fonts from Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600&display=swap" rel="stylesheet" />
-
-    <!-- Load FontAwesome (for icons) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
       integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
       crossorigin="anonymous"
     />
-
-    <!-- Load Academicons (for more icons) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.2/css/academicons.min.css"
@@ -39,36 +25,165 @@
       crossorigin="anonymous"
     />
   </head>
-
   <body>
-    <section id="content">
-      <!-- Avatar image -->
-      <img src="images/that's not me.jpeg" alt="Marco Tam" class="avatar" />
+    <main class="page">
+      <header class="hero">
+        <div class="profile">
+          <img src="images/that's not me.jpeg" alt="Marco Tam" class="avatar" />
+          <h1>King-Man Tam</h1>
+          <p class="subtitle">
+            Master student in Open Vision Lab at Science Tokyo
+          </p>
+          <section class="profile-research">
+            <h2 class="section-title">Research Topics</h2>
+            <p class="topic-line"><i class="fas fa-cube"></i> 3D Vision</p>
+            <p class="topic-line"><i class="fas fa-camera"></i> Computational Imaging</p>
+          </section>
+          <ul class="icons">
+            <li>
+              <a href="mailto:marcotam2002@gmail.com" title="E-Mail"
+                ><i class="fas fa-envelope"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://github.com/marcotam2002" title="GitHub"
+                ><i class="fab fa-github"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/tamkingman/" title="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://scholar.google.com/citations?user=u856j-MAAAAJ&hl=en&authuser=1"
+                title="Google Scholar"
+                ><i class="ai ai-google-scholar"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <div class="intro">
+          <p>
+            I am a master student at Science Tokyo Open-vision Lab, advised by
+            <a href="https://open-vision.sc.e.titech.ac.jp/~reikawa/"
+              >Prof. Rei Kawakami</a
+            >
+            and working closely with Prof. Satoshi Ikehata in 3D Vision.
+          </p>
+          <p>
+            Before that, I obtained my BSc degree in Mathematics from CUHK,
+            with a minor in Computer Science. During my undergraduate studies,
+            I was advised by <a href="http://lokminglui.com/">Prof. Ronald Lui</a>
+            for UROP and worked closely with Prof. Jinwei Gu and
+            <a href="https://mdyao.github.io/">Dr. Mingde Yao</a> on
+            computational imaging.
+          </p>
+          <p>
+            I am currently focusing on topics such as 3D vision, computational imaging and related fields.
+          </p>
+          <section class="research">
+            <h2 class="research-heading"><i class="fas fa-book"></i> Research</h2>
+            <div id="research-list"></div>
+          </section>
+        </div>
+      </header>
+    </main>
 
-      <!-- Text -->
-      <p>
-        Hello! I'm King-Man Tam, a first-year master student at Science Tokyo, honored to be advised by <a href="https://open-vision.sc.e.titech.ac.jp/~reikawa/">Prof. Rei Kawakami</a>.
-      </p>
-      <p>
-        Before that, I received my bachelor degree from CUHK in Mathematics and Computer Science, where I was fortunate to work with <a href="http://lokminglui.com/">Prof. Ronald Lui</a> and <a href="https://mdyao.github.io/">Dr. Mingde Yao</a>.
-      </p>
-      
-      <!-- Icons -->
-      <ul class="icons">
-        <li>
-          <a href="marcotam2002@gmail.com" title="E-Mail"><i class="fas fa-envelope"></i></a>
-        </li>
-        <li>
-          <a href="https://github.com/marcotam2002" title="GitHub"><i class="fab fa-github"></i></a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/tamkingman/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        </li>
-        <li>
-          <a href="https://scholar.google.com/citations?user=u856j-MAAAAJ&hl=en&authuser=1" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
-        </li>
-      </ul>
-    </section>
+    <script>
+      const researchRecords = [
+        // {
+        //   code: "photoagent",
+        //   title: "PhotoAgent: Agentic Photo Editing with Exploratory Visual Aesthetic Planning",
+        //   venue: "arxiv 2026",
+        //   date: "2026-02-26",
+        //   authors: "Mingde Yao, Zhiyuan You, King-Man Tam, Menglu Wang, Tianfan Xue",
+        //   thumbnailExt: "png",
+        //   links: [
+        //     { label: "Paper", icon: "fa-file-alt", url: "https://arxiv.org/abs/2602.22809" },
+        //     { label: "Page", icon: "fa-globe", url: "https://mdyao.github.io/PhotoAgent/" },
+        //     { label: "Code", icon: "fa-code", url: "https://github.com/mdyao/PhotoAgent" }
+        //   ]
+        // },
+        {
+          code: "geounips",
+          title: "Geometry Meets Light: Leveraging Geometric Priors for Universal Photometric Stereo Under Limited Multi-Illumination Cues",
+          venue: "AAAI 2026 Oral",
+          date: "2025-11-17",
+          authors: "King-Man Tam, Satoshi Ikehata, Yuta Asano, Zhaoyi An, Rei Kawakami",
+          thumbnailExt: "png",
+          links: [
+            { label: "Paper", icon: "fa-file-alt", url: "https://arxiv.org/abs/2511.13015" },
+            { label: "Page", icon: "fa-globe", url: "https://marcotam2002.github.io/geounips/" },
+            { label: "Code", icon: "fa-code", url: "https://github.com/marcotam2002/geounips" },
+            { label: "Dataset", icon: "fa-database", url: "https://drive.google.com/drive/folders/1vm4IVwDfYZiyDaZVti9sRelE6mFCh2vX" },
+            { label: "Model", icon: "fa-cube", url: "https://huggingface.co/marcotam2002/geounips" }
+          ]
+        },
+        {
+          code: "polarfree",
+          title: "PolarFree: Polarization-based Reflection-Free Imaging",
+          venue: "CVPR 2025",
+          date: "2025-03-23",
+          authors: "Mingde Yao, Menglu Wang, King-Man Tam, Lingen Li, Tianfan Xue, Jinwei Gu",
+          thumbnailExt: "png",
+          links: [
+            { label: "Paper", icon: "fa-file-alt", url: "https://arxiv.org/abs/2503.18055" },
+            { label: "Page", icon: "fa-globe", url: "https://mdyao.github.io/PolarFree/" },
+            { label: "Code", icon: "fa-code", url: "https://github.com/mdyao/PolarFree" }
+          ]
+        },
+      ];
+
+      function renderResearch() {
+        const listEl = document.getElementById("research-list");
+        if (!listEl) return;
+
+        const sorted = [...researchRecords]
+          .sort((a, b) => new Date(b.date) - new Date(a.date))
+          .slice(0, 10);
+
+        listEl.innerHTML = sorted
+          .map((item) => {
+            const styledVenue = item.venue.replace(
+              /\bOral\b/g,
+              '<span class="venue-oral">Oral</span>'
+            );
+            const styledAuthors = item.authors.replace(
+              /\bKing-Man Tam\b/g,
+              "<strong>King-Man Tam</strong>"
+            );
+            const links = item.links
+              .map(
+                (link) =>
+                  `<a href="${link.url}"><i class="fas ${link.icon}"></i> ${link.label}</a>`
+              )
+              .join("");
+            const thumbnailExt = item.thumbnailExt || "png";
+            const thumbnailSrc = item.code
+              ? `teasers/${item.code}.${thumbnailExt}`
+              : "";
+            const thumbnailHtml = item.code
+              ? `<img src="${thumbnailSrc}" alt="${item.title} thumbnail" loading="lazy" />`
+              : "Preview";
+
+            return `
+              <article class="paper-card">
+                <div class="paper-thumb">${thumbnailHtml}</div>
+                <div class="paper-content">
+                  <h3 class="paper-title">${item.title}</h3>
+                  <p class="paper-meta">${styledVenue}</p>
+                  <p class="paper-authors">${styledAuthors}</p>
+                  <div class="paper-links">${links}</div>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+      }
+
+      renderResearch();
+    </script>
   </body>
- 
 </html>
