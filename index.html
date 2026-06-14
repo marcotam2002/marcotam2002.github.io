@@ -93,19 +93,19 @@
 
     <script>
       const researchRecords = [
-        // {
-        //   code: "photoagent",
-        //   title: "PhotoAgent: Agentic Photo Editing with Exploratory Visual Aesthetic Planning",
-        //   venue: "arxiv 2026",
-        //   date: "2026-02-26",
-        //   authors: "Mingde Yao, Zhiyuan You, King-Man Tam, Menglu Wang, Tianfan Xue",
-        //   thumbnailExt: "png",
-        //   links: [
-        //     { label: "Paper", icon: "fa-file-alt", url: "https://arxiv.org/abs/2602.22809" },
-        //     { label: "Page", icon: "fa-globe", url: "https://mdyao.github.io/PhotoAgent/" },
-        //     { label: "Code", icon: "fa-code", url: "https://github.com/mdyao/PhotoAgent" }
-        //   ]
-        // },
+        {
+          code: "photoagent",
+          title: "PhotoAgent: Agentic Photo Editing with Exploratory Visual Aesthetic Planning",
+          venue: "ICML 2026 Oral",
+          date: "2026-02-26",
+          authors: "Mingde Yao, Zhiyuan You, King-Man Tam, Menglu Wang, Tianfan Xue",
+          thumbnailExt: "jpg",
+          links: [
+            { label: "Paper", icon: "fa-file-alt", url: "https://arxiv.org/abs/2602.22809" },
+            { label: "Page", icon: "fa-globe", url: "https://mdyao.github.io/PhotoAgent/" },
+            { label: "Code", icon: "fa-code", url: "https://github.com/mdyao/PhotoAgent" }
+          ]
+        },
         {
           code: "geounips",
           title: "Geometry Meets Light: Leveraging Geometric Priors for Universal Photometric Stereo Under Limited Multi-Illumination Cues",
@@ -186,8 +186,14 @@
               )
               .join("");
             const thumbnailExt = item.thumbnailExt || "png";
+            const thumbnailYear =
+              String(item.venue || "").match(/\b(20\d{2})\b/)?.[1] ||
+              String(item.date || "").slice(0, 4);
+            const thumbnailName = thumbnailYear
+              ? `${thumbnailYear}-${item.code}`
+              : item.code;
             const thumbnailSrc = item.code
-              ? `teasers/${encodeURIComponent(item.code)}.${encodeURIComponent(thumbnailExt)}`
+              ? `teasers/${encodeURIComponent(thumbnailName)}.${encodeURIComponent(thumbnailExt)}`
               : "";
             const thumbnailHtml = item.code
               ? `<img src="${thumbnailSrc}" alt="${escapeHtml(item.title || "Research")} thumbnail" loading="lazy" onerror="this.onerror=null;this.closest('.paper-thumb').textContent='Preview';" />`
