@@ -18,7 +18,7 @@ body {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: Arial, sans-serif;
   color: var(--text);
   background: var(--bg);
   line-height: 1.72;
@@ -68,7 +68,6 @@ a:hover {
 
 h1 {
   margin: 14px 0 8px;
-  font-family: "Libre Baskerville", serif;
   font-size: 1.6rem;
   font-weight: 700;
   line-height: 1.2;
@@ -98,7 +97,7 @@ h1 {
   margin: 0 0 8px;
   font-size: 1rem;
   font-weight: 600;
-  font-family: "Inter", sans-serif;
+  font-family: Arial, sans-serif;
   color: #222;
   text-align: center;
 }
@@ -109,14 +108,14 @@ h1 {
   font-size: 0.95rem;
   line-height: 1.4;
   text-align: left;
-  font-family: "Libre Baskerville", serif;
 }
 
 .topic-line i {
-  margin-right: 4px;
-  margin-left: 4px;
+  width: 18px;
+  margin-right: 6px;
   color: #111;
   font-size: 0.9rem;
+  text-align: center;
 }
 
 .icons {
@@ -143,7 +142,7 @@ h1 {
 
 .research-heading {
   margin: 0 0 12px;
-  font-family: "Inter", sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 1.55rem;
   font-weight: 700;
 }
